@@ -195,15 +195,15 @@
     <GenerateManifest>true</GenerateManifest>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MTd|Win32'">
-    <OutDir>Bin\Desktop_2022\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>Bin\Desktop_2022\$(Platform)\</OutDir>
     <IntDir>Bin\Desktop_2022\$(Platform)\$(Configuration)\</IntDir>
-    <TargetName>DirectXTex</TargetName>
+    <TargetName>DirectXTex_$(Configuration)</TargetName>
     <GenerateManifest>true</GenerateManifest>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MDd|Win32'">
-    <OutDir>Bin\Desktop_2022\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>Bin\Desktop_2022\$(Platform)\</OutDir>
     <IntDir>Bin\Desktop_2022\$(Platform)\$(Configuration)\</IntDir>
-    <TargetName>DirectXTex</TargetName>
+    <TargetName>DirectXTex_$(Configuration)</TargetName>
     <GenerateManifest>true</GenerateManifest>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|X64'">
@@ -213,15 +213,15 @@
     <GenerateManifest>true</GenerateManifest>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MTd|X64'">
-    <OutDir>Bin\Desktop_2022\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>Bin\Desktop_2022\$(Platform)\</OutDir>
     <IntDir>Bin\Desktop_2022\$(Platform)\$(Configuration)\</IntDir>
-    <TargetName>DirectXTex</TargetName>
+    <TargetName>DirectXTex_$(Configuration)</TargetName>
     <GenerateManifest>true</GenerateManifest>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MDd|X64'">
-    <OutDir>Bin\Desktop_2022\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>Bin\Desktop_2022\$(Platform)\</OutDir>
     <IntDir>Bin\Desktop_2022\$(Platform)\$(Configuration)\</IntDir>
-    <TargetName>DirectXTex</TargetName>
+    <TargetName>DirectXTex_$(Configuration)</TargetName>
     <GenerateManifest>true</GenerateManifest>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -231,15 +231,15 @@
     <GenerateManifest>true</GenerateManifest>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MD|Win32'">
-    <OutDir>Bin\Desktop_2022\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>Bin\Desktop_2022\$(Platform)\</OutDir>
     <IntDir>Bin\Desktop_2022\$(Platform)\$(Configuration)\</IntDir>
-    <TargetName>DirectXTex</TargetName>
+    <TargetName>DirectXTex_$(Configuration)</TargetName>
     <GenerateManifest>true</GenerateManifest>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MT|Win32'">
-    <OutDir>Bin\Desktop_2022\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>Bin\Desktop_2022\$(Platform)\</OutDir>
     <IntDir>Bin\Desktop_2022\$(Platform)\$(Configuration)\</IntDir>
-    <TargetName>DirectXTex</TargetName>
+    <TargetName>DirectXTex_$(Configuration)</TargetName>
     <GenerateManifest>true</GenerateManifest>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|X64'">
@@ -249,15 +249,15 @@
     <GenerateManifest>true</GenerateManifest>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MD|X64'">
-    <OutDir>Bin\Desktop_2022\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>Bin\Desktop_2022\$(Platform)\</OutDir>
     <IntDir>Bin\Desktop_2022\$(Platform)\$(Configuration)\</IntDir>
-    <TargetName>DirectXTex</TargetName>
+    <TargetName>DirectXTex_$(Configuration)</TargetName>
     <GenerateManifest>true</GenerateManifest>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MT|X64'">
-    <OutDir>Bin\Desktop_2022\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>Bin\Desktop_2022\$(Platform)\</OutDir>
     <IntDir>Bin\Desktop_2022\$(Platform)\$(Configuration)\</IntDir>
-    <TargetName>DirectXTex</TargetName>
+    <TargetName>DirectXTex_$(Configuration)</TargetName>
     <GenerateManifest>true</GenerateManifest>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">
@@ -417,7 +417,7 @@
       <PreprocessorDefinitions>_UNICODE;UNICODE;WIN32;_DEBUG;_LIB;_WIN7_PLATFORM_UPDATE;_WIN32_WINNT=0x0601;_CRT_STDIO_ARBITRARY_WIDE_SPECIFIERS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>DirectXTexP.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)Shaders\Compiled;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)Shaders\Compiled;..\Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
@@ -453,7 +453,7 @@
       <PreprocessorDefinitions>_UNICODE;UNICODE;WIN32;_DEBUG;_LIB;_WIN7_PLATFORM_UPDATE;_WIN32_WINNT=0x0601;_CRT_STDIO_ARBITRARY_WIDE_SPECIFIERS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>DirectXTexP.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)Shaders\Compiled;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)Shaders\Compiled;..\Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
@@ -615,7 +615,7 @@
       <PreprocessorDefinitions>_UNICODE;UNICODE;WIN32;NDEBUG;_LIB;_WIN7_PLATFORM_UPDATE;_WIN32_WINNT=0x0601;_CRT_STDIO_ARBITRARY_WIDE_SPECIFIERS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>DirectXTexP.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)Shaders\Compiled;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)Shaders\Compiled;..\Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
@@ -650,7 +650,7 @@
       <PreprocessorDefinitions>_UNICODE;UNICODE;WIN32;NDEBUG;_LIB;_WIN7_PLATFORM_UPDATE;_WIN32_WINNT=0x0601;_CRT_STDIO_ARBITRARY_WIDE_SPECIFIERS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>DirectXTexP.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)Shaders\Compiled;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)Shaders\Compiled;..\Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
