@@ -317,6 +317,7 @@
       <SDLCheck>true</SDLCheck>
       <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>26812</DisableSpecificWarnings>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalDependencies>d3d11.lib;ole32.lib;windowscodecs.lib;uuid.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -349,6 +350,7 @@
       <SDLCheck>true</SDLCheck>
       <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>26812</DisableSpecificWarnings>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalDependencies>d3d11.lib;ole32.lib;windowscodecs.lib;uuid.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -403,6 +405,7 @@
       <SDLCheck>true</SDLCheck>
       <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>26812</DisableSpecificWarnings>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalDependencies>d3d11.lib;ole32.lib;windowscodecs.lib;uuid.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -433,6 +436,7 @@
       <SDLCheck>true</SDLCheck>
       <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>26812</DisableSpecificWarnings>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalDependencies>d3d11.lib;ole32.lib;windowscodecs.lib;uuid.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -491,6 +495,7 @@
       <SDLCheck>true</SDLCheck>
       <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>26812</DisableSpecificWarnings>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalDependencies>d3d11.lib;ole32.lib;windowscodecs.lib;uuid.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -526,6 +531,7 @@
       <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>26812</DisableSpecificWarnings>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalDependencies>d3d11.lib;ole32.lib;windowscodecs.lib;uuid.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -584,6 +590,7 @@
       <SDLCheck>true</SDLCheck>
       <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>26812</DisableSpecificWarnings>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalDependencies>d3d11.lib;ole32.lib;windowscodecs.lib;uuid.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -617,6 +624,7 @@
       <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>26812</DisableSpecificWarnings>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalDependencies>d3d11.lib;ole32.lib;windowscodecs.lib;uuid.lib;%(AdditionalDependencies)</AdditionalDependencies>

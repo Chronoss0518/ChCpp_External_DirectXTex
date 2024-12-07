@@ -320,6 +320,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <DisableSpecificWarnings>26812</DisableSpecificWarnings>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalDependencies>ole32.lib;windowscodecs.lib;uuid.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -353,6 +354,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <DisableSpecificWarnings>26812</DisableSpecificWarnings>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalDependencies>ole32.lib;windowscodecs.lib;uuid.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -410,6 +412,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <DisableSpecificWarnings>26812</DisableSpecificWarnings>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalDependencies>ole32.lib;windowscodecs.lib;uuid.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -441,6 +444,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <DisableSpecificWarnings>26812</DisableSpecificWarnings>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalDependencies>ole32.lib;windowscodecs.lib;uuid.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -502,6 +506,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <DisableSpecificWarnings>26812</DisableSpecificWarnings>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalDependencies>ole32.lib;windowscodecs.lib;uuid.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -538,6 +543,7 @@
       <ConformanceMode>true</ConformanceMode>
       <DisableSpecificWarnings>26812</DisableSpecificWarnings>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalDependencies>ole32.lib;windowscodecs.lib;uuid.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -599,6 +605,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <DisableSpecificWarnings>26812</DisableSpecificWarnings>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalDependencies>ole32.lib;windowscodecs.lib;uuid.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -633,6 +640,7 @@
       <ConformanceMode>true</ConformanceMode>
       <DisableSpecificWarnings>26812</DisableSpecificWarnings>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalDependencies>ole32.lib;windowscodecs.lib;uuid.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
