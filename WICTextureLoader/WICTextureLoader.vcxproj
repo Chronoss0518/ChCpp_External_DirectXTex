@@ -2762,45 +2762,59 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <TargetName>$(ProjectName)_$(Configuration)</TargetName>
+    <IncludePath>../../DirectX-Headers\include\directx;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MD|Win32'">
     <TargetName>$(ProjectName)_$(Configuration)</TargetName>
+    <IncludePath>../../DirectX-Headers\include\directx;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MDd|Win32'">
     <TargetName>$(ProjectName)_$(Configuration)</TargetName>
+    <IncludePath>../../DirectX-Headers\include\directx;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MT|Win32'">
     <TargetName>$(ProjectName)_$(Configuration)</TargetName>
+    <IncludePath>../../DirectX-Headers\include\directx;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MTd|Win32'">
     <TargetName>$(ProjectName)_$(Configuration)</TargetName>
+    <IncludePath>../../DirectX-Headers\include\directx;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">
     <TargetName>$(ProjectName)_$(Configuration)</TargetName>
+    <IncludePath>../../DirectX-Headers\include\directx;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <TargetName>$(ProjectName)_$(Configuration)</TargetName>
+    <IncludePath>../../DirectX-Headers\include\directx;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <TargetName>$(ProjectName)_$(Configuration)</TargetName>
+    <IncludePath>../../DirectX-Headers\include\directx;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MD|x64'">
     <TargetName>$(ProjectName)_$(Configuration)</TargetName>
+    <IncludePath>../../DirectX-Headers\include\directx;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MDd|x64'">
     <TargetName>$(ProjectName)_$(Configuration)</TargetName>
+    <IncludePath>../../DirectX-Headers\include\directx;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MT|x64'">
     <TargetName>$(ProjectName)_$(Configuration)</TargetName>
+    <IncludePath>../../DirectX-Headers\include\directx;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MTd|x64'">
     <TargetName>$(ProjectName)_$(Configuration)</TargetName>
+    <IncludePath>../../DirectX-Headers\include\directx;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">
     <TargetName>$(ProjectName)_$(Configuration)</TargetName>
+    <IncludePath>../../DirectX-Headers\include\directx;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <TargetName>$(ProjectName)_$(Configuration)</TargetName>
+    <IncludePath>../../DirectX-Headers\include\directx;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
