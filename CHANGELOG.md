@@ -6,9 +6,24 @@ Release available for download on [GitHub](https://github.com/microsoft/DirectXT
 
 ## Release History
 
+### March 24, 2025
+* C++17 `std::byte` support for `FromMemory` functions
+* Added **ComputeTileShape** method to compute Direct3D Tiled Resource standard dimensions
+* Added *isd3d12* defaulted parameter to `IsPlaner` for change to depth/stencil formats
+* DDS reader `DDS_FLAGS_PERMISSIVE` supports a DX10 variant with 'incorrect' cubemap counts
+* Retired support for Windows 7 and Windows 8.0
+* CMake project updates including support for BUILD_SHARED_LIBS (i.e. DLL vs. static library)
+* texconv:
+  * Add `--ignore-srgb` switch which passes `TGA_FLAGS_IGNORE_SRGB` or `WIC_FLAGS_IGNORE_SRGB`
+  * Add `--wic-uncompressed` switch which applies to TIFF and HEIF
+  * Updates for `--wic-lossless` (JPEG-XR only) and `--wic-quality` (also applies to HEIF) switches
+  * The `--ignore-mips` switch now properly blocks use on array textures
+  * Remove 'heic' file extension for writing which is only supported for reading by *HEIF Image Extensions*
+  * Add support for 'phm' file extension to indicate Portable Half Map
+
 ### October 28, 2024
 * All enums now use ``uint32_t`` as the underlying type rather than ``unsigned long`` or ``int``.
-* Added ``BytesPerBlock`` utility helper
+* Added **BytesPerBlock** utility helper
 * Fixed bug in DirectX 12 `CaptureTexture` for MSAA resolve state handling
 * texassemble, texconv, texdiag:
   * Add "GNU-style" *--long-options* to the command-line tools (all existing switches are still supported)
@@ -25,7 +40,7 @@ Release available for download on [GitHub](https://github.com/microsoft/DirectXT
 * texconv: Added `-ignoremips` option to handle some invalid/truncated DDS files
 * EXR auxiliary reader returns 6 images for files with 'envmap' metadata
 * PNG auxiliary reader/writer fixed for single channel images (`DXGI_FORMAT_R8_UNORM`)
-* Xbox auxiliary now has `EncodeDDSHeader` function
+* Xbox auxiliary now has **EncodeDDSHeader** function
 * ScreenGrab9 minor DDS header fix when writing A2W10V10U10 legacy mixed formats
 * CMake project updates including support for ARM64EC
 * Added GitHub Actions YAML files
@@ -65,7 +80,7 @@ Release available for download on [GitHub](https://github.com/microsoft/DirectXT
 * texconv: ``-permissive`` switch added to opt-in use of new flag when reading DDS files
 
 ### September 1, 2023
-* ``CompressEx`` and ``ConvertEx`` functions added with status callback and options structs
+* **CompressEx** and **ConvertEx** functions added with status callback and options structs
 * Added optional ``DDSMetaData`` return for Ex versions of DDS loader functions
 * Added ``TEX_ALPHA_WEIGHT_DEFAULT`` constant (set to 1.0)
 * DDS reader updated to support variant used by *Unreal Tournament 2004*
@@ -120,7 +135,7 @@ Release available for download on [GitHub](https://github.com/microsoft/DirectXT
 * Code review
 
 ### July 29, 2022
-* Added ``MakeLinear`` DXGI_FORMAT utility function.
+* Added **MakeLinear** DXGI_FORMAT utility function.
 * *breaking change* ``CreateTextureEx`` and ``CreateShaderResourceViewEx`` functions now use ``CREATETEX_FLAGS`` instead of a ``bool forceSRGB`` parameter.
 * Updates for MinGW ABI fixes for DirectX12 in the latest DirectX-Headers.
 * CMake and MSBuild project updates
@@ -129,7 +144,7 @@ Release available for download on [GitHub](https://github.com/microsoft/DirectXT
 
 ### May 9, 2022
 * TGA reader updated to support 24-bit paletted uncompressed color-mapped images (used by a DCC application)
-* Added `IsBGR` utility method
+* Added **IsBGR** utility method
 * Workaround for driver issue on some systems using DirectX 11 `Capture` method
 * Fix for problem with resizing/mipmaps generation for HDR content using box/fant filter which should avoid going through WIC code paths
 * Minor updates for VS 2022 (17.2)
@@ -150,6 +165,7 @@ Release available for download on [GitHub](https://github.com/microsoft/DirectXT
 * Optional C++17 usage in a few places
 
 ### February 28, 2022
+* Made **EncodeDDSHeader** a public function instead of being internal only
 * Updated D3DX12 internal copy with latest changes from GitHub
 * Code and project review including fixing clang v13 warnings
 * Added CMakePresets.json
@@ -217,7 +233,7 @@ Release available for download on [GitHub](https://github.com/microsoft/DirectXT
 
 ### August 15, 2020
 * Added ``DDS_FLAGS_ALLOW_LARGE_FILES`` flag for DDS loader to allow textures with dimensions that are too big for Direct3D
-* Added ``FormatDataType`` function
+* Added **FormatDataType** function
 * Fixed bug with DX12 ``Capture`` with 'small alignment' textures
 * Code review and project updates
 * Added GDK projects
@@ -235,9 +251,9 @@ Release available for download on [GitHub](https://github.com/microsoft/DirectXT
 
 ### June 1, 2020
 * Converted to typed enum bitmask flags (see release notes for details on this potential *breaking change*)
-  + **ComputePitch**, **xxxDDSxxx**, **xxxWICxxx**, **FlipRotate**, **Resize**, **Convert**, **GenerateMipMaps**, **GenerateMipMaps3D**, **PremultiplyAlpha**, **Compress**, **ComputeNormalMap**, **CopyRectangle**, **ComputeMSE**
+  * **ComputePitch**, **xxxDDSxxx**, **xxxWICxxx**, **FlipRotate**, **Resize**, **Convert**, **GenerateMipMaps**, **GenerateMipMaps3D**, **PremultiplyAlpha**, **Compress**, **ComputeNormalMap**, **CopyRectangle**, **ComputeMSE**
 * ``WIC_FLAGS_DEFAULT_SRGB`` / ``WIC_LOADER_SRGB_DEFAULT`` flag added when loading image via WIC without explicit colorspace metadata
-*  WIC loader for  ``PNG`` codec now checks ``gAMA`` chunk to determine colorspace if the ``sRGB`` chunk is not found for legacy sRGB detection.
+* WIC loader for  ``PNG`` codec now checks ``gAMA`` chunk to determine colorspace if the ``sRGB`` chunk is not found for legacy sRGB detection.
 * Fixed conformance issues when using ``/Zc:preprocessor``
 * CMake project updates
 
@@ -548,9 +564,9 @@ Release available for download on [GitHub](https://github.com/microsoft/DirectXT
 
 ### June 15, 2013
 * Custom filtering implementation for **Resize** & **GenerateMipMaps(3D)** - Point, Box, Linear, Cubic, and Triangle
-  + ``TEX_FILTER_TRIANGLE`` finite low-pass triangle filter
-  + ``TEX_FILTER_WRAP``, ``TEX_FILTER_MIRROR`` texture semantics for custom filtering
-  + ``TEX_FILTER_BOX`` alias for ``TEX_FILTER_FANT WIC``
+  * ``TEX_FILTER_TRIANGLE`` finite low-pass triangle filter
+  * ``TEX_FILTER_WRAP``, ``TEX_FILTER_MIRROR`` texture semantics for custom filtering
+  * ``TEX_FILTER_BOX`` alias for ``TEX_FILTER_FANT WIC``
 * Ordered and error diffusion dithering for non-WIC conversion
 * sRGB gamma correct custom filtering and conversion
 * ``DDS_FLAGS_EXPAND_LUMINANCE`` - Reader conversion option for L8, L16, and A8L8 legacy DDS files

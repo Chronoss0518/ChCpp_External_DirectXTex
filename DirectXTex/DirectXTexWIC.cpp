@@ -29,7 +29,8 @@ namespace
         constexpr WICConvert(const GUID& src, const GUID& tgt, TEX_ALPHA_MODE mode) noexcept :
             source(src),
             target(tgt),
-            alphaMode(mode) {}
+            alphaMode(mode)
+        {}
     };
 
     constexpr WICConvert g_WICConvert[] =
@@ -81,11 +82,9 @@ namespace
         { GUID_WICPixelFormat40bppCMYKAlpha,        GUID_WICPixelFormat32bppRGBA, TEX_ALPHA_MODE_UNKNOWN }, // DXGI_FORMAT_R8G8B8A8_UNORM
         { GUID_WICPixelFormat80bppCMYKAlpha,        GUID_WICPixelFormat64bppRGBA, TEX_ALPHA_MODE_UNKNOWN }, // DXGI_FORMAT_R16G16B16A16_UNORM
 
-    #if (_WIN32_WINNT >= _WIN32_WINNT_WIN8) || defined(_WIN7_PLATFORM_UPDATE)
         { GUID_WICPixelFormat32bppRGB,              GUID_WICPixelFormat32bppRGBA, TEX_ALPHA_MODE_OPAQUE }, // DXGI_FORMAT_R8G8B8A8_UNORM
         { GUID_WICPixelFormat64bppRGB,              GUID_WICPixelFormat64bppRGBA, TEX_ALPHA_MODE_OPAQUE }, // DXGI_FORMAT_R16G16B16A16_UNORM
         { GUID_WICPixelFormat64bppPRGBAHalf,        GUID_WICPixelFormat64bppRGBAHalf, TEX_ALPHA_MODE_UNKNOWN }, // DXGI_FORMAT_R16G16B16A16_FLOAT
-    #endif
 
         // We don't support n-channel formats
     };
@@ -111,7 +110,6 @@ namespace
         {
             if (memcmp(&GUID_WICPixelFormat96bppRGBFixedPoint, &pixelFormat, sizeof(WICPixelFormatGUID)) == 0)
             {
-            #if (_WIN32_WINNT >= _WIN32_WINNT_WIN8) || defined(_WIN7_PLATFORM_UPDATE)
                 if (iswic2)
                 {
                     if (pConvert)
@@ -119,9 +117,6 @@ namespace
                     format = DXGI_FORMAT_R32G32B32_FLOAT;
                 }
                 else
-                #else
-                UNREFERENCED_PARAMETER(iswic2);
-            #endif
                 {
                     if (pConvert)
                         memcpy_s(pConvert, sizeof(WICPixelFormatGUID), &GUID_WICPixelFormat128bppRGBAFloat, sizeof(GUID));

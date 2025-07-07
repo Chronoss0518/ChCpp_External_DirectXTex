@@ -118,7 +118,7 @@
     },
 
     {
-      "name": "Win7",
+      "name": "Win8",
       "cacheVariables": {
         "BUILD_DX12": false
       },
@@ -294,10 +294,10 @@
     { "name": "arm64-Debug-UWP"  , "description": "MSVC for ARM64 (Debug) for UWP", "inherits": [ "base", "ARM64", "Debug", "MSVC", "UWP" ] },
     { "name": "arm64-Release-UWP", "description": "MSVC for ARM64 (Release) for UWP", "inherits": [ "base", "ARM64", "Release", "MSVC", "UWP" ] },
 
-    { "name": "x64-Debug-Win7"    , "description": "MSVC for x64 (Debug) for Windows 7", "inherits": [ "base", "x64", "Debug", "MSVC", "Win7" ] },
-    { "name": "x64-Release-Win7"  , "description": "MSVC for x64 (Release) for Windows 7", "inherits": [ "base", "x64", "Release", "MSVC", "Win7" ] },
-    { "name": "x86-Debug-Win7"    , "description": "MSVC for x86 (Debug) for Windows 7", "inherits": [ "base", "x86", "Debug", "MSVC", "Win7" ] },
-    { "name": "x86-Release-Win7"  , "description": "MSVC for x86 (Release) for Windows 7", "inherits": [ "base", "x86", "Release", "MSVC", "Win7" ] },
+    { "name": "x64-Debug-Win8"    , "description": "MSVC for x64 (Debug) for Windows 8.1", "inherits": [ "base", "x64", "Debug", "MSVC", "Win8" ] },
+    { "name": "x64-Release-Win8"  , "description": "MSVC for x64 (Release) for Windows 8.1", "inherits": [ "base", "x64", "Release", "MSVC", "Win8" ] },
+    { "name": "x86-Debug-Win8"    , "description": "MSVC for x86 (Debug) for Windows 8.1", "inherits": [ "base", "x86", "Debug", "MSVC", "Win8" ] },
+    { "name": "x86-Release-Win8"  , "description": "MSVC for x86 (Release) for Windows 8.1", "inherits": [ "base", "x86", "Release", "MSVC", "Win8" ] },
 
     { "name": "x64-Debug-Scarlett"    , "description": "MSVC for x64 (Debug) for Xbox Series X|S", "inherits": [ "base", "x64", "Debug", "MSVC", "Scarlett" ] },
     { "name": "x64-Release-Scarlett"  , "description": "MSVC for x64 (Release) for Xbox Series X|S", "inherits": [ "base", "x64", "Release", "MSVC", "Scarlett" ] },
@@ -337,10 +337,10 @@
     { "name": "arm64-Debug-UWP-Clang"  , "description": "Clang/LLVM for AArch64 (Debug) for UWP", "inherits": [ "base", "ARM64", "Debug", "Clang", "Clang-AArch64", "UWP" ] },
     { "name": "arm64-Release-UWP-Clang", "description": "Clang/LLVM for AArch64 (Release) for UWP", "inherits": [ "base", "ARM64", "Release", "Clang", "Clang-AArch64", "UWP" ] },
 
-    { "name": "x64-Debug-Win7-Clang"  , "description": "Clang/LLVM for x64 (Debug) for Windows 7", "inherits": [ "base", "x64", "Debug", "Clang", "Win7" ] },
-    { "name": "x64-Release-Win7-Clang", "description": "Clang/LLVM for x64 (Release) for Windows 7", "inherits": [ "base", "x64", "Release", "Clang", "Win7" ] },
-    { "name": "x86-Debug-Win7-Clang"  , "description": "Clang/LLVM for x86 (Debug) for Windows 7", "inherits": [ "base", "x86", "Debug", "Clang", "Clang-X86", "Win7" ] },
-    { "name": "x86-Release-Win7-Clang", "description": "Clang/LLVM for x86 (Release) for Windows 7", "inherits": [ "base", "x86", "Release", "Clang", "Clang-X86", "Win7" ] },
+    { "name": "x64-Debug-Win8-Clang"  , "description": "Clang/LLVM for x64 (Debug) for Windows 8.1", "inherits": [ "base", "x64", "Debug", "Clang", "Win8" ] },
+    { "name": "x64-Release-Win8-Clang", "description": "Clang/LLVM for x64 (Release) for Windows 8.1", "inherits": [ "base", "x64", "Release", "Clang", "Win8" ] },
+    { "name": "x86-Debug-Win8-Clang"  , "description": "Clang/LLVM for x86 (Debug) for Windows 8.1", "inherits": [ "base", "x86", "Debug", "Clang", "Clang-X86", "Win8" ] },
+    { "name": "x86-Release-Win8-Clang", "description": "Clang/LLVM for x86 (Release) for Windows 8.1", "inherits": [ "base", "x86", "Release", "Clang", "Clang-X86", "Win8" ] },
 
     { "name": "x64-Debug-Clang-VCPKG"    , "description": "Clang/LLVM for x64 (Debug) using VCPKG/OpenEXR", "inherits": [ "base", "x64", "Debug", "Clang", "VCPKG" ] },
     { "name": "x64-Release-Clang-VCPKG"  , "description": "Clang/LLVM for x64 (Release) using VCPKG/OpenEXR", "inherits": [ "base", "x64", "Release", "Clang", "VCPKG" ] },
@@ -406,12 +406,26 @@
     { "name": "arm64ec-Debug"  , "configurePreset": "arm64ec-Debug" },
     { "name": "arm64ec-Release", "configurePreset": "arm64ec-Release" },
 
+    { "name": "x64-Debug-VCPKG"      , "configurePreset": "x64-Debug-VCPKG" },
+    { "name": "x64-Release-VCPKG"    , "configurePreset": "x64-Release-VCPKG" },
+    { "name": "x86-Debug-VCPKG"      , "configurePreset": "x86-Debug-VCPKG" },
+    { "name": "x86-Release-VCPKG"    , "configurePreset": "x86-Release-VCPKG" },
+    { "name": "arm64-Debug-VCPKG"    , "configurePreset": "arm64-Debug-VCPKG" },
+    { "name": "arm64-Release-VCPKG"  , "configurePreset": "arm64-Release-VCPKG" },
+    { "name": "arm64ec-Debug-VCPKG"  , "configurePreset": "arm64ec-Debug-VCPKG" },
+    { "name": "arm64ec-Release-VCPKG", "configurePreset": "arm64ec-Release-VCPKG" },
+
     { "name": "x64-Debug-Clang"    , "configurePreset": "x64-Debug-Clang" },
     { "name": "x64-Release-Clang"  , "configurePreset": "x64-Release-Clang" },
     { "name": "x86-Debug-Clang"    , "configurePreset": "x86-Debug-Clang" },
     { "name": "x86-Release-Clang"  , "configurePreset": "x86-Release-Clang" },
     { "name": "arm64-Debug-Clang"  , "configurePreset": "arm64-Debug-Clang" },
     { "name": "arm64-Release-Clang", "configurePreset": "arm64-Release-Clang" },
+
+    { "name": "x64-Debug-GDKX"     , "configurePreset": "x64-Debug-GDKX" },
+    { "name": "x64-Release-GDKX"   , "configurePreset": "x64-Release-GDKX" },
+    { "name": "x64-Debug-GDKX-S"   , "configurePreset": "x64-Debug-GDKX-S" },
+    { "name": "x64-Release-GDKX-S" , "configurePreset": "x64-Release-GDKX-S" },
 
     { "name": "x64-Debug-MinGW"    , "configurePreset": "x64-Debug-MinGW" },
     { "name": "x64-Release-MinGW"  , "configurePreset": "x64-Release-MinGW" },

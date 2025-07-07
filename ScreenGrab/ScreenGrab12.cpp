@@ -108,20 +108,20 @@ namespace
         uint32_t    ABitMask;
     };
 
-    #define DDS_FOURCC      0x00000004  // DDPF_FOURCC
-    #define DDS_RGB         0x00000040  // DDPF_RGB
-    #define DDS_RGBA        0x00000041  // DDPF_RGB | DDPF_ALPHAPIXELS
-    #define DDS_LUMINANCE   0x00020000  // DDPF_LUMINANCE
-    #define DDS_LUMINANCEA  0x00020001  // DDPF_LUMINANCE | DDPF_ALPHAPIXELS
-    #define DDS_ALPHA       0x00000002  // DDPF_ALPHA
-    #define DDS_BUMPDUDV    0x00080000  // DDPF_BUMPDUDV
+#define DDS_FOURCC      0x00000004  // DDPF_FOURCC
+#define DDS_RGB         0x00000040  // DDPF_RGB
+#define DDS_RGBA        0x00000041  // DDPF_RGB | DDPF_ALPHAPIXELS
+#define DDS_LUMINANCE   0x00020000  // DDPF_LUMINANCE
+#define DDS_LUMINANCEA  0x00020001  // DDPF_LUMINANCE | DDPF_ALPHAPIXELS
+#define DDS_ALPHA       0x00000002  // DDPF_ALPHA
+#define DDS_BUMPDUDV    0x00080000  // DDPF_BUMPDUDV
 
-    #define DDS_HEADER_FLAGS_TEXTURE        0x00001007  // DDSD_CAPS | DDSD_HEIGHT | DDSD_WIDTH | DDSD_PIXELFORMAT
-    #define DDS_HEADER_FLAGS_MIPMAP         0x00020000  // DDSD_MIPMAPCOUNT
-    #define DDS_HEADER_FLAGS_PITCH          0x00000008  // DDSD_PITCH
-    #define DDS_HEADER_FLAGS_LINEARSIZE     0x00080000  // DDSD_LINEARSIZE
+#define DDS_HEADER_FLAGS_TEXTURE        0x00001007  // DDSD_CAPS | DDSD_HEIGHT | DDSD_WIDTH | DDSD_PIXELFORMAT
+#define DDS_HEADER_FLAGS_MIPMAP         0x00020000  // DDSD_MIPMAPCOUNT
+#define DDS_HEADER_FLAGS_PITCH          0x00000008  // DDSD_PITCH
+#define DDS_HEADER_FLAGS_LINEARSIZE     0x00080000  // DDSD_LINEARSIZE
 
-    #define DDS_SURFACE_FLAGS_TEXTURE 0x00001000 // DDSCAPS_TEXTURE
+#define DDS_SURFACE_FLAGS_TEXTURE 0x00001000 // DDSCAPS_TEXTURE
 
     struct DDS_HEADER
     {
@@ -154,7 +154,7 @@ namespace
     static_assert(sizeof(DDS_HEADER) == 124, "DDS Header size mismatch");
     static_assert(sizeof(DDS_HEADER_DXT10) == 20, "DDS DX10 Extended Header size mismatch");
 
-    #pragma pack(pop)
+#pragma pack(pop)
 
     constexpr size_t DDS_MIN_HEADER_SIZE = sizeof(uint32_t) + sizeof(DDS_HEADER);
     constexpr size_t DDS_DX10_HEADER_SIZE = sizeof(uint32_t) + sizeof(DDS_HEADER) + sizeof(DDS_HEADER_DXT10);
@@ -931,10 +931,10 @@ HRESULT DirectX::SaveDDSTextureToFile(
 
     // Get the size of the image
 #if defined(_MSC_VER) || !defined(_WIN32)
-    auto const desc = pSource->GetDesc();
+    const auto desc = pSource->GetDesc();
 #else
     D3D12_RESOURCE_DESC tmpDesc;
-    auto const& desc = *pSource->GetDesc(&tmpDesc);
+    const auto& desc = *pSource->GetDesc(&tmpDesc);
 #endif
 
     if (desc.Width > UINT32_MAX)
@@ -967,7 +967,10 @@ HRESULT DirectX::SaveDDSTextureToFile(
 
     // Create file
 #ifdef _WIN32
-    ScopedHandle hFile(safe_handle(CreateFile2(fileName, GENERIC_WRITE, 0, CREATE_ALWAYS, nullptr)));
+    ScopedHandle hFile(safe_handle(CreateFile2(
+        fileName,
+        GENERIC_WRITE, 0, CREATE_ALWAYS,
+        nullptr)));
     if (!hFile)
         return HRESULT_FROM_WIN32(GetLastError());
 
@@ -1158,10 +1161,10 @@ HRESULT DirectX::SaveWICTextureToFile(
 
     // Get the size of the image
 #if defined(_MSC_VER) || !defined(_WIN32)
-    auto const desc = pSource->GetDesc();
+    const auto desc = pSource->GetDesc();
 #else
     D3D12_RESOURCE_DESC tmpDesc;
-    auto const& desc = *pSource->GetDesc(&tmpDesc);
+    const auto& desc = *pSource->GetDesc(&tmpDesc);
 #endif
 
     if (desc.Width > UINT32_MAX)

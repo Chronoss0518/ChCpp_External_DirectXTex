@@ -60,111 +60,109 @@ namespace
 
     const LegacyDDS g_LegacyDDSMap[] =
     {
-        { DXGI_FORMAT_BC1_UNORM,          CONV_FLAGS_NONE,        DDSPF_DXT1 }, // D3DFMT_DXT1
-        { DXGI_FORMAT_BC2_UNORM,          CONV_FLAGS_NONE,        DDSPF_DXT3 }, // D3DFMT_DXT3
-        { DXGI_FORMAT_BC3_UNORM,          CONV_FLAGS_NONE,        DDSPF_DXT5 }, // D3DFMT_DXT5
+        { DXGI_FORMAT_BC1_UNORM,          CONV_FLAGS_NONE,      DDSPF_DXT1 }, // D3DFMT_DXT1
+        { DXGI_FORMAT_BC2_UNORM,          CONV_FLAGS_NONE,      DDSPF_DXT3 }, // D3DFMT_DXT3
+        { DXGI_FORMAT_BC3_UNORM,          CONV_FLAGS_NONE,      DDSPF_DXT5 }, // D3DFMT_DXT5
 
-        { DXGI_FORMAT_BC2_UNORM,          CONV_FLAGS_PMALPHA,     DDSPF_DXT2 }, // D3DFMT_DXT2
-        { DXGI_FORMAT_BC3_UNORM,          CONV_FLAGS_PMALPHA,     DDSPF_DXT4 }, // D3DFMT_DXT4
+        { DXGI_FORMAT_BC2_UNORM,          CONV_FLAGS_PMALPHA,   DDSPF_DXT2 }, // D3DFMT_DXT2
+        { DXGI_FORMAT_BC3_UNORM,          CONV_FLAGS_PMALPHA,   DDSPF_DXT4 }, // D3DFMT_DXT4
 
         // These DXT5 variants have various swizzled channels. They are returned 'as is' to the client as BC3.
-        { DXGI_FORMAT_BC3_UNORM,          CONV_FLAGS_NONE,        { sizeof(DDS_PIXELFORMAT), DDS_FOURCC, MAKEFOURCC('A', '2', 'D', '5'), 0, 0, 0, 0, 0 } },
-        { DXGI_FORMAT_BC3_UNORM,          CONV_FLAGS_NONE,        { sizeof(DDS_PIXELFORMAT), DDS_FOURCC, MAKEFOURCC('x', 'G', 'B', 'R'), 0, 0, 0, 0, 0 } },
-        { DXGI_FORMAT_BC3_UNORM,          CONV_FLAGS_NONE,        { sizeof(DDS_PIXELFORMAT), DDS_FOURCC, MAKEFOURCC('R', 'x', 'B', 'G'), 0, 0, 0, 0, 0 } },
-        { DXGI_FORMAT_BC3_UNORM,          CONV_FLAGS_NONE,        { sizeof(DDS_PIXELFORMAT), DDS_FOURCC, MAKEFOURCC('R', 'B', 'x', 'G'), 0, 0, 0, 0, 0 } },
-        { DXGI_FORMAT_BC3_UNORM,          CONV_FLAGS_NONE,        { sizeof(DDS_PIXELFORMAT), DDS_FOURCC, MAKEFOURCC('x', 'R', 'B', 'G'), 0, 0, 0, 0, 0 } },
-        { DXGI_FORMAT_BC3_UNORM,          CONV_FLAGS_NONE,        { sizeof(DDS_PIXELFORMAT), DDS_FOURCC, MAKEFOURCC('R', 'G', 'x', 'B'), 0, 0, 0, 0, 0 } },
-        { DXGI_FORMAT_BC3_UNORM,          CONV_FLAGS_NONE,        { sizeof(DDS_PIXELFORMAT), DDS_FOURCC, MAKEFOURCC('x', 'G', 'x', 'R'), 0, 0, 0, 0, 0 } },
-        { DXGI_FORMAT_BC3_UNORM,          CONV_FLAGS_NONE,        { sizeof(DDS_PIXELFORMAT), DDS_FOURCC, MAKEFOURCC('G', 'X', 'R', 'B'), 0, 0, 0, 0, 0 } },
-        { DXGI_FORMAT_BC3_UNORM,          CONV_FLAGS_NONE,        { sizeof(DDS_PIXELFORMAT), DDS_FOURCC, MAKEFOURCC('G', 'R', 'X', 'B'), 0, 0, 0, 0, 0 } },
-        { DXGI_FORMAT_BC3_UNORM,          CONV_FLAGS_NONE,        { sizeof(DDS_PIXELFORMAT), DDS_FOURCC, MAKEFOURCC('R', 'X', 'G', 'B'), 0, 0, 0, 0, 0 } },
-        { DXGI_FORMAT_BC3_UNORM,          CONV_FLAGS_NONE,        { sizeof(DDS_PIXELFORMAT), DDS_FOURCC, MAKEFOURCC('B', 'R', 'G', 'X'), 0, 0, 0, 0, 0 } },
+        { DXGI_FORMAT_BC3_UNORM,          CONV_FLAGS_NONE,      { sizeof(DDS_PIXELFORMAT), DDS_FOURCC, MAKEFOURCC('A', '2', 'D', '5'), 0, 0, 0, 0, 0 } },
+        { DXGI_FORMAT_BC3_UNORM,          CONV_FLAGS_NONE,      { sizeof(DDS_PIXELFORMAT), DDS_FOURCC, MAKEFOURCC('x', 'G', 'B', 'R'), 0, 0, 0, 0, 0 } },
+        { DXGI_FORMAT_BC3_UNORM,          CONV_FLAGS_NONE,      { sizeof(DDS_PIXELFORMAT), DDS_FOURCC, MAKEFOURCC('R', 'x', 'B', 'G'), 0, 0, 0, 0, 0 } },
+        { DXGI_FORMAT_BC3_UNORM,          CONV_FLAGS_NONE,      { sizeof(DDS_PIXELFORMAT), DDS_FOURCC, MAKEFOURCC('R', 'B', 'x', 'G'), 0, 0, 0, 0, 0 } },
+        { DXGI_FORMAT_BC3_UNORM,          CONV_FLAGS_NONE,      { sizeof(DDS_PIXELFORMAT), DDS_FOURCC, MAKEFOURCC('x', 'R', 'B', 'G'), 0, 0, 0, 0, 0 } },
+        { DXGI_FORMAT_BC3_UNORM,          CONV_FLAGS_NONE,      { sizeof(DDS_PIXELFORMAT), DDS_FOURCC, MAKEFOURCC('R', 'G', 'x', 'B'), 0, 0, 0, 0, 0 } },
+        { DXGI_FORMAT_BC3_UNORM,          CONV_FLAGS_NONE,      { sizeof(DDS_PIXELFORMAT), DDS_FOURCC, MAKEFOURCC('x', 'G', 'x', 'R'), 0, 0, 0, 0, 0 } },
+        { DXGI_FORMAT_BC3_UNORM,          CONV_FLAGS_NONE,      { sizeof(DDS_PIXELFORMAT), DDS_FOURCC, MAKEFOURCC('G', 'X', 'R', 'B'), 0, 0, 0, 0, 0 } },
+        { DXGI_FORMAT_BC3_UNORM,          CONV_FLAGS_NONE,      { sizeof(DDS_PIXELFORMAT), DDS_FOURCC, MAKEFOURCC('G', 'R', 'X', 'B'), 0, 0, 0, 0, 0 } },
+        { DXGI_FORMAT_BC3_UNORM,          CONV_FLAGS_NONE,      { sizeof(DDS_PIXELFORMAT), DDS_FOURCC, MAKEFOURCC('R', 'X', 'G', 'B'), 0, 0, 0, 0, 0 } },
+        { DXGI_FORMAT_BC3_UNORM,          CONV_FLAGS_NONE,      { sizeof(DDS_PIXELFORMAT), DDS_FOURCC, MAKEFOURCC('B', 'R', 'G', 'X'), 0, 0, 0, 0, 0 } },
 
-        { DXGI_FORMAT_BC4_UNORM,          CONV_FLAGS_NONE,        DDSPF_BC4_UNORM },
-        { DXGI_FORMAT_BC4_SNORM,          CONV_FLAGS_NONE,        DDSPF_BC4_SNORM },
-        { DXGI_FORMAT_BC5_UNORM,          CONV_FLAGS_NONE,        DDSPF_BC5_UNORM },
-        { DXGI_FORMAT_BC5_SNORM,          CONV_FLAGS_NONE,        DDSPF_BC5_SNORM },
+        { DXGI_FORMAT_BC4_UNORM,          CONV_FLAGS_NONE,      DDSPF_BC4_UNORM },
+        { DXGI_FORMAT_BC4_SNORM,          CONV_FLAGS_NONE,      DDSPF_BC4_SNORM },
+        { DXGI_FORMAT_BC5_UNORM,          CONV_FLAGS_NONE,      DDSPF_BC5_UNORM },
+        { DXGI_FORMAT_BC5_SNORM,          CONV_FLAGS_NONE,      DDSPF_BC5_SNORM },
 
-        { DXGI_FORMAT_BC4_UNORM,          CONV_FLAGS_NONE,        { sizeof(DDS_PIXELFORMAT), DDS_FOURCC, MAKEFOURCC('A', 'T', 'I', '1'), 0, 0, 0, 0, 0 } },
-        { DXGI_FORMAT_BC5_UNORM,          CONV_FLAGS_NONE,        { sizeof(DDS_PIXELFORMAT), DDS_FOURCC, MAKEFOURCC('A', 'T', 'I', '2'), 0, 0, 0, 0, 0 } },
-        { DXGI_FORMAT_BC5_UNORM,          CONV_FLAGS_NONE,        { sizeof(DDS_PIXELFORMAT), DDS_FOURCC, MAKEFOURCC('A', '2', 'X', 'Y'), 0, 0, 0, 0, 0 } },
+        { DXGI_FORMAT_BC4_UNORM,          CONV_FLAGS_NONE,      { sizeof(DDS_PIXELFORMAT), DDS_FOURCC, MAKEFOURCC('A', 'T', 'I', '1'), 0, 0, 0, 0, 0 } },
+        { DXGI_FORMAT_BC5_UNORM,          CONV_FLAGS_NONE,      { sizeof(DDS_PIXELFORMAT), DDS_FOURCC, MAKEFOURCC('A', 'T', 'I', '2'), 0, 0, 0, 0, 0 } },
+        { DXGI_FORMAT_BC5_UNORM,          CONV_FLAGS_NONE,      { sizeof(DDS_PIXELFORMAT), DDS_FOURCC, MAKEFOURCC('A', '2', 'X', 'Y'), 0, 0, 0, 0, 0 } },
 
-        { DXGI_FORMAT_BC6H_UF16,          CONV_FLAGS_NONE,        { sizeof(DDS_PIXELFORMAT), DDS_FOURCC, MAKEFOURCC('B', 'C', '6', 'H'), 0, 0, 0, 0, 0 } },
-        { DXGI_FORMAT_BC7_UNORM,          CONV_FLAGS_NONE,        { sizeof(DDS_PIXELFORMAT), DDS_FOURCC, MAKEFOURCC('B', 'C', '7', 'L'), 0, 0, 0, 0, 0 } },
-        { DXGI_FORMAT_BC7_UNORM,          CONV_FLAGS_NONE,        { sizeof(DDS_PIXELFORMAT), DDS_FOURCC, MAKEFOURCC('B', 'C', '7', '\0'), 0, 0, 0, 0, 0 } },
+        { DXGI_FORMAT_BC6H_UF16,          CONV_FLAGS_NONE,      { sizeof(DDS_PIXELFORMAT), DDS_FOURCC, MAKEFOURCC('B', 'C', '6', 'H'), 0, 0, 0, 0, 0 } },
+        { DXGI_FORMAT_BC7_UNORM,          CONV_FLAGS_NONE,      { sizeof(DDS_PIXELFORMAT), DDS_FOURCC, MAKEFOURCC('B', 'C', '7', 'L'), 0, 0, 0, 0, 0 } },
+        { DXGI_FORMAT_BC7_UNORM,          CONV_FLAGS_NONE,      { sizeof(DDS_PIXELFORMAT), DDS_FOURCC, MAKEFOURCC('B', 'C', '7', '\0'), 0, 0, 0, 0, 0 } },
 
-        { DXGI_FORMAT_R8G8_B8G8_UNORM,    CONV_FLAGS_NONE,        DDSPF_R8G8_B8G8 }, // D3DFMT_R8G8_B8G8
-        { DXGI_FORMAT_G8R8_G8B8_UNORM,    CONV_FLAGS_NONE,        DDSPF_G8R8_G8B8 }, // D3DFMT_G8R8_G8B8
+        { DXGI_FORMAT_R8G8_B8G8_UNORM,    CONV_FLAGS_NONE,      DDSPF_R8G8_B8G8 }, // D3DFMT_R8G8_B8G8
+        { DXGI_FORMAT_G8R8_G8B8_UNORM,    CONV_FLAGS_NONE,      DDSPF_G8R8_G8B8 }, // D3DFMT_G8R8_G8B8
 
-        { DXGI_FORMAT_B8G8R8A8_UNORM,     CONV_FLAGS_NONE,        DDSPF_A8R8G8B8 }, // D3DFMT_A8R8G8B8 (uses DXGI 1.1 format)
-        { DXGI_FORMAT_B8G8R8X8_UNORM,     CONV_FLAGS_NONE,        DDSPF_X8R8G8B8 }, // D3DFMT_X8R8G8B8 (uses DXGI 1.1 format)
-        { DXGI_FORMAT_R8G8B8A8_UNORM,     CONV_FLAGS_NONE,        DDSPF_A8B8G8R8 }, // D3DFMT_A8B8G8R8
-        { DXGI_FORMAT_R8G8B8A8_UNORM,     CONV_FLAGS_NOALPHA,     DDSPF_X8B8G8R8 }, // D3DFMT_X8B8G8R8
-        { DXGI_FORMAT_R16G16_UNORM,       CONV_FLAGS_NONE,        DDSPF_G16R16   }, // D3DFMT_G16R16
+        { DXGI_FORMAT_B8G8R8A8_UNORM,     CONV_FLAGS_NONE,      DDSPF_A8R8G8B8 }, // D3DFMT_A8R8G8B8 (uses DXGI 1.1 format)
+        { DXGI_FORMAT_B8G8R8X8_UNORM,     CONV_FLAGS_NONE,      DDSPF_X8R8G8B8 }, // D3DFMT_X8R8G8B8 (uses DXGI 1.1 format)
+        { DXGI_FORMAT_R8G8B8A8_UNORM,     CONV_FLAGS_NONE,      DDSPF_A8B8G8R8 }, // D3DFMT_A8B8G8R8
+        { DXGI_FORMAT_R8G8B8A8_UNORM,     CONV_FLAGS_NOALPHA,   DDSPF_X8B8G8R8 }, // D3DFMT_X8B8G8R8
+        { DXGI_FORMAT_R16G16_UNORM,       CONV_FLAGS_NONE,      DDSPF_G16R16   }, // D3DFMT_G16R16
 
-        { DXGI_FORMAT_R10G10B10A2_UNORM,  CONV_FLAGS_SWIZZLE,     DDSPF_A2R10G10B10 }, // D3DFMT_A2R10G10B10 (D3DX reversal issue)
-        { DXGI_FORMAT_R10G10B10A2_UNORM,  CONV_FLAGS_NONE,        DDSPF_A2B10G10R10 }, // D3DFMT_A2B10G10R10 (D3DX reversal issue)
+        { DXGI_FORMAT_R10G10B10A2_UNORM,  CONV_FLAGS_SWIZZLE,   DDSPF_A2R10G10B10 }, // D3DFMT_A2R10G10B10 (D3DX reversal issue)
+        { DXGI_FORMAT_R10G10B10A2_UNORM,  CONV_FLAGS_NONE,      DDSPF_A2B10G10R10 }, // D3DFMT_A2B10G10R10 (D3DX reversal issue)
 
-        { DXGI_FORMAT_R8G8B8A8_UNORM,     CONV_FLAGS_EXPAND
-                                          | CONV_FLAGS_NOALPHA
-                                          | CONV_FLAGS_888,       DDSPF_R8G8B8 }, // D3DFMT_R8G8B8
+        { DXGI_FORMAT_R8G8B8A8_UNORM,     CONV_FLAGS_EXPAND | CONV_FLAGS_NOALPHA | CONV_FLAGS_888,
+                                                                DDSPF_R8G8B8 }, // D3DFMT_R8G8B8
 
-        { DXGI_FORMAT_B5G6R5_UNORM,       CONV_FLAGS_565,         DDSPF_R5G6B5 }, // D3DFMT_R5G6B5
-        { DXGI_FORMAT_B5G5R5A1_UNORM,     CONV_FLAGS_5551,        DDSPF_A1R5G5B5 }, // D3DFMT_A1R5G5B5
-        { DXGI_FORMAT_B5G5R5A1_UNORM,     CONV_FLAGS_5551
-                                          | CONV_FLAGS_NOALPHA,   DDSPF_X1R5G5B5 }, // D3DFMT_X1R5G5B5
+        { DXGI_FORMAT_B5G6R5_UNORM,       CONV_FLAGS_565,       DDSPF_R5G6B5 }, // D3DFMT_R5G6B5
+        { DXGI_FORMAT_B5G5R5A1_UNORM,     CONV_FLAGS_5551,      DDSPF_A1R5G5B5 }, // D3DFMT_A1R5G5B5
+        { DXGI_FORMAT_B5G5R5A1_UNORM,     CONV_FLAGS_5551 | CONV_FLAGS_NOALPHA,
+                                                                DDSPF_X1R5G5B5 }, // D3DFMT_X1R5G5B5
 
-        { DXGI_FORMAT_R8G8B8A8_UNORM,     CONV_FLAGS_EXPAND
-                                          | CONV_FLAGS_8332,      DDSPF_A8R3G3B2 }, // D3DFMT_A8R3G3B2
-        { DXGI_FORMAT_B5G6R5_UNORM,       CONV_FLAGS_EXPAND
-                                          | CONV_FLAGS_332,       DDSPF_R3G3B2 }, // D3DFMT_R3G3B2
+        { DXGI_FORMAT_R8G8B8A8_UNORM,     CONV_FLAGS_EXPAND | CONV_FLAGS_8332,
+                                                                DDSPF_A8R3G3B2 }, // D3DFMT_A8R3G3B2
+        { DXGI_FORMAT_B5G6R5_UNORM,       CONV_FLAGS_EXPAND | CONV_FLAGS_332,
+                                                                DDSPF_R3G3B2 }, // D3DFMT_R3G3B2
 
-        { DXGI_FORMAT_R8_UNORM,           CONV_FLAGS_NONE,        DDSPF_L8 }, // D3DFMT_L8
-        { DXGI_FORMAT_R16_UNORM,          CONV_FLAGS_NONE,        DDSPF_L16 }, // D3DFMT_L16
-        { DXGI_FORMAT_R8G8_UNORM,         CONV_FLAGS_NONE,        DDSPF_A8L8 }, // D3DFMT_A8L8
-        { DXGI_FORMAT_R8G8_UNORM,         CONV_FLAGS_NONE,        DDSPF_A8L8_ALT }, // D3DFMT_A8L8 (alternative bitcount)
+        { DXGI_FORMAT_R8_UNORM,           CONV_FLAGS_NONE,      DDSPF_L8 }, // D3DFMT_L8
+        { DXGI_FORMAT_R16_UNORM,          CONV_FLAGS_NONE,      DDSPF_L16 }, // D3DFMT_L16
+        { DXGI_FORMAT_R8G8_UNORM,         CONV_FLAGS_NONE,      DDSPF_A8L8 }, // D3DFMT_A8L8
+        { DXGI_FORMAT_R8G8_UNORM,         CONV_FLAGS_NONE,      DDSPF_A8L8_ALT }, // D3DFMT_A8L8 (alternative bitcount)
 
         // NVTT v1 wrote these with RGB instead of LUMINANCE
-        { DXGI_FORMAT_R8_UNORM,           CONV_FLAGS_NONE,        DDSPF_L8_NVTT1 }, // D3DFMT_L8
-        { DXGI_FORMAT_R16_UNORM,          CONV_FLAGS_NONE,        DDSPF_L16_NVTT1  }, // D3DFMT_L16
-        { DXGI_FORMAT_R8G8_UNORM,         CONV_FLAGS_NONE,        DDSPF_A8L8_NVTT1 }, // D3DFMT_A8L8
+        { DXGI_FORMAT_R8_UNORM,           CONV_FLAGS_NONE,      DDSPF_L8_NVTT1 }, // D3DFMT_L8
+        { DXGI_FORMAT_R16_UNORM,          CONV_FLAGS_NONE,      DDSPF_L16_NVTT1  }, // D3DFMT_L16
+        { DXGI_FORMAT_R8G8_UNORM,         CONV_FLAGS_NONE,      DDSPF_A8L8_NVTT1 }, // D3DFMT_A8L8
 
-        { DXGI_FORMAT_A8_UNORM,           CONV_FLAGS_NONE,        DDSPF_A8   }, // D3DFMT_A8
+        { DXGI_FORMAT_A8_UNORM,           CONV_FLAGS_NONE,      DDSPF_A8   }, // D3DFMT_A8
 
-        { DXGI_FORMAT_R16G16B16A16_UNORM, CONV_FLAGS_NONE,        { sizeof(DDS_PIXELFORMAT), DDS_FOURCC,   36,  0, 0, 0, 0, 0 } }, // D3DFMT_A16B16G16R16
-        { DXGI_FORMAT_R16G16B16A16_SNORM, CONV_FLAGS_NONE,        { sizeof(DDS_PIXELFORMAT), DDS_FOURCC,  110,  0, 0, 0, 0, 0 } }, // D3DFMT_Q16W16V16U16
-        { DXGI_FORMAT_R16_FLOAT,          CONV_FLAGS_NONE,        { sizeof(DDS_PIXELFORMAT), DDS_FOURCC,  111,  0, 0, 0, 0, 0 } }, // D3DFMT_R16F
-        { DXGI_FORMAT_R16G16_FLOAT,       CONV_FLAGS_NONE,        { sizeof(DDS_PIXELFORMAT), DDS_FOURCC,  112,  0, 0, 0, 0, 0 } }, // D3DFMT_G16R16F
-        { DXGI_FORMAT_R16G16B16A16_FLOAT, CONV_FLAGS_NONE,        { sizeof(DDS_PIXELFORMAT), DDS_FOURCC,  113,  0, 0, 0, 0, 0 } }, // D3DFMT_A16B16G16R16F
-        { DXGI_FORMAT_R32_FLOAT,          CONV_FLAGS_NONE,        { sizeof(DDS_PIXELFORMAT), DDS_FOURCC,  114,  0, 0, 0, 0, 0 } }, // D3DFMT_R32F
-        { DXGI_FORMAT_R32G32_FLOAT,       CONV_FLAGS_NONE,        { sizeof(DDS_PIXELFORMAT), DDS_FOURCC,  115,  0, 0, 0, 0, 0 } }, // D3DFMT_G32R32F
-        { DXGI_FORMAT_R32G32B32A32_FLOAT, CONV_FLAGS_NONE,        { sizeof(DDS_PIXELFORMAT), DDS_FOURCC,  116,  0, 0, 0, 0, 0 } }, // D3DFMT_A32B32G32R32F
+        { DXGI_FORMAT_R16G16B16A16_UNORM, CONV_FLAGS_NONE,      { sizeof(DDS_PIXELFORMAT), DDS_FOURCC,   36,  0, 0, 0, 0, 0 } }, // D3DFMT_A16B16G16R16
+        { DXGI_FORMAT_R16G16B16A16_SNORM, CONV_FLAGS_NONE,      { sizeof(DDS_PIXELFORMAT), DDS_FOURCC,  110,  0, 0, 0, 0, 0 } }, // D3DFMT_Q16W16V16U16
+        { DXGI_FORMAT_R16_FLOAT,          CONV_FLAGS_NONE,      { sizeof(DDS_PIXELFORMAT), DDS_FOURCC,  111,  0, 0, 0, 0, 0 } }, // D3DFMT_R16F
+        { DXGI_FORMAT_R16G16_FLOAT,       CONV_FLAGS_NONE,      { sizeof(DDS_PIXELFORMAT), DDS_FOURCC,  112,  0, 0, 0, 0, 0 } }, // D3DFMT_G16R16F
+        { DXGI_FORMAT_R16G16B16A16_FLOAT, CONV_FLAGS_NONE,      { sizeof(DDS_PIXELFORMAT), DDS_FOURCC,  113,  0, 0, 0, 0, 0 } }, // D3DFMT_A16B16G16R16F
+        { DXGI_FORMAT_R32_FLOAT,          CONV_FLAGS_NONE,      { sizeof(DDS_PIXELFORMAT), DDS_FOURCC,  114,  0, 0, 0, 0, 0 } }, // D3DFMT_R32F
+        { DXGI_FORMAT_R32G32_FLOAT,       CONV_FLAGS_NONE,      { sizeof(DDS_PIXELFORMAT), DDS_FOURCC,  115,  0, 0, 0, 0, 0 } }, // D3DFMT_G32R32F
+        { DXGI_FORMAT_R32G32B32A32_FLOAT, CONV_FLAGS_NONE,      { sizeof(DDS_PIXELFORMAT), DDS_FOURCC,  116,  0, 0, 0, 0, 0 } }, // D3DFMT_A32B32G32R32F
 
-        { DXGI_FORMAT_R32_FLOAT,          CONV_FLAGS_NONE,        { sizeof(DDS_PIXELFORMAT), DDS_RGB,       0, 32, 0xffffffff, 0, 0, 0 } }, // D3DFMT_R32F (D3DX uses FourCC 114 instead)
+        { DXGI_FORMAT_R32_FLOAT,          CONV_FLAGS_NONE,      { sizeof(DDS_PIXELFORMAT), DDS_RGB,       0, 32, 0xffffffff, 0, 0, 0 } }, // D3DFMT_R32F (D3DX uses FourCC 114 instead)
 
-        { DXGI_FORMAT_R8G8B8A8_UNORM,     CONV_FLAGS_EXPAND
-                                          | CONV_FLAGS_PAL8
-                                          | CONV_FLAGS_A8P8,      { sizeof(DDS_PIXELFORMAT), DDS_PAL8A,     0, 16, 0, 0, 0, 0xff00 } }, // D3DFMT_A8P8
-        { DXGI_FORMAT_R8G8B8A8_UNORM,     CONV_FLAGS_EXPAND
-                                          | CONV_FLAGS_PAL8,      { sizeof(DDS_PIXELFORMAT), DDS_PAL8,      0,  8, 0, 0, 0, 0 } }, // D3DFMT_P8
+        { DXGI_FORMAT_R8G8B8A8_UNORM,     CONV_FLAGS_EXPAND | CONV_FLAGS_PAL8 | CONV_FLAGS_A8P8,
+                                                                { sizeof(DDS_PIXELFORMAT), DDS_PAL8A,     0, 16, 0, 0, 0, 0xff00 } }, // D3DFMT_A8P8
+        { DXGI_FORMAT_R8G8B8A8_UNORM,     CONV_FLAGS_EXPAND | CONV_FLAGS_PAL8,
+                                                                { sizeof(DDS_PIXELFORMAT), DDS_PAL8,      0,  8, 0, 0, 0, 0 } }, // D3DFMT_P8
 
-        { DXGI_FORMAT_B4G4R4A4_UNORM,     CONV_FLAGS_4444,        DDSPF_A4R4G4B4 }, // D3DFMT_A4R4G4B4 (uses DXGI 1.2 format)
-        { DXGI_FORMAT_B4G4R4A4_UNORM,     CONV_FLAGS_NOALPHA
-                                          | CONV_FLAGS_4444,      DDSPF_X4R4G4B4 }, // D3DFMT_X4R4G4B4 (uses DXGI 1.2 format)
-        { DXGI_FORMAT_B4G4R4A4_UNORM,     CONV_FLAGS_EXPAND
-                                          | CONV_FLAGS_44,        DDSPF_A4L4 }, // D3DFMT_A4L4 (uses DXGI 1.2 format)
+        { DXGI_FORMAT_B4G4R4A4_UNORM,     CONV_FLAGS_4444,      DDSPF_A4R4G4B4 }, // D3DFMT_A4R4G4B4 (uses DXGI 1.2 format)
+        { DXGI_FORMAT_B4G4R4A4_UNORM,     CONV_FLAGS_NOALPHA | CONV_FLAGS_4444,
+                                                                DDSPF_X4R4G4B4 }, // D3DFMT_X4R4G4B4 (uses DXGI 1.2 format)
+        { DXGI_FORMAT_B4G4R4A4_UNORM,     CONV_FLAGS_EXPAND | CONV_FLAGS_44,
+                                                                DDSPF_A4L4 }, // D3DFMT_A4L4 (uses DXGI 1.2 format)
 
-        { DXGI_FORMAT_YUY2,               CONV_FLAGS_NONE,        DDSPF_YUY2 }, // D3DFMT_YUY2 (uses DXGI 1.2 format)
-        { DXGI_FORMAT_YUY2,               CONV_FLAGS_SWIZZLE,     DDSPF_UYVY }, // D3DFMT_UYVY (uses DXGI 1.2 format)
+        { DXGI_FORMAT_YUY2,               CONV_FLAGS_NONE,      DDSPF_YUY2 }, // D3DFMT_YUY2 (uses DXGI 1.2 format)
+        { DXGI_FORMAT_YUY2,               CONV_FLAGS_SWIZZLE,   DDSPF_UYVY }, // D3DFMT_UYVY (uses DXGI 1.2 format)
 
-        { DXGI_FORMAT_R8G8_SNORM,         CONV_FLAGS_NONE,        DDSPF_V8U8 },     // D3DFMT_V8U8
-        { DXGI_FORMAT_R8G8B8A8_SNORM,     CONV_FLAGS_NONE,        DDSPF_Q8W8V8U8 }, // D3DFMT_Q8W8V8U8
-        { DXGI_FORMAT_R16G16_SNORM,       CONV_FLAGS_NONE,        DDSPF_V16U16 },   // D3DFMT_V16U16
+        { DXGI_FORMAT_R8G8_SNORM,         CONV_FLAGS_NONE,      DDSPF_V8U8 },     // D3DFMT_V8U8
+        { DXGI_FORMAT_R8G8B8A8_SNORM,     CONV_FLAGS_NONE,      DDSPF_Q8W8V8U8 }, // D3DFMT_Q8W8V8U8
+        { DXGI_FORMAT_R16G16_SNORM,       CONV_FLAGS_NONE,      DDSPF_V16U16 },   // D3DFMT_V16U16
 
-        { DXGI_FORMAT_R8G8B8A8_UNORM,     CONV_FLAGS_L6V5U5
-                                          | CONV_FLAGS_EXPAND,    DDSPF_L6V5U5 },      // D3DFMT_L6V5U5
-        { DXGI_FORMAT_R8G8B8A8_UNORM,     CONV_FLAGS_L8U8V8,      DDSPF_X8L8V8U8 },    // D3DFMT_X8L8V8U8
-        { DXGI_FORMAT_R10G10B10A2_UNORM,  CONV_FLAGS_WUV10,       DDSPF_A2W10V10U10 }, // D3DFMT_A2W10V10U10
+        { DXGI_FORMAT_R8G8B8A8_UNORM,     CONV_FLAGS_L6V5U5 | CONV_FLAGS_EXPAND,
+                                                                DDSPF_L6V5U5 },      // D3DFMT_L6V5U5
+        { DXGI_FORMAT_R8G8B8A8_UNORM,     CONV_FLAGS_L8U8V8,    DDSPF_X8L8V8U8 },    // D3DFMT_X8L8V8U8
+        { DXGI_FORMAT_R10G10B10A2_UNORM,  CONV_FLAGS_WUV10,     DDSPF_A2W10V10U10 }, // D3DFMT_A2W10V10U10
     };
 
     // Note that many common DDS reader/writers (including D3DX) swap the
@@ -341,7 +339,7 @@ namespace
         }
 
         // DDS files always start with the same magic number ("DDS ")
-        auto const dwMagicNumber = *static_cast<const uint32_t*>(pSource);
+        const auto dwMagicNumber = *static_cast<const uint32_t*>(pSource);
         if (dwMagicNumber != DDS_MAGIC)
         {
             return E_FAIL;
@@ -378,7 +376,7 @@ namespace
         }
 
         metadata.mipLevels = pHeader->mipMapCount;
-        if ((metadata.mipLevels == 0) || (flags & DDS_FLAGS_IGNORE_MIPS))
+        if (metadata.mipLevels == 0)
         {
             metadata.mipLevels = 1;
         }
@@ -648,6 +646,12 @@ namespace
             {
                 return HRESULT_E_NOT_SUPPORTED;
             }
+        }
+
+        // Special-handling flag for ignoring mipchains on simple DDS files
+        if ((flags & DDS_FLAGS_IGNORE_MIPS) && (metadata.arraySize == 1))
+        {
+            metadata.mipLevels = 1;
         }
 
         // Handle DDS-specific metadata
@@ -1878,12 +1882,10 @@ HRESULT DirectX::GetMetadataFromDDSFileEx(
         return E_INVALIDARG;
 
 #ifdef _WIN32
-#if (_WIN32_WINNT >= _WIN32_WINNT_WIN8)
-    ScopedHandle hFile(safe_handle(CreateFile2(szFile, GENERIC_READ, FILE_SHARE_READ, OPEN_EXISTING, nullptr)));
-#else
-    ScopedHandle hFile(safe_handle(CreateFileW(szFile, GENERIC_READ, FILE_SHARE_READ, nullptr, OPEN_EXISTING,
-        FILE_FLAG_SEQUENTIAL_SCAN, nullptr)));
-#endif
+    ScopedHandle hFile(safe_handle(CreateFile2(
+        szFile,
+        GENERIC_READ, FILE_SHARE_READ, OPEN_EXISTING,
+        nullptr)));
     if (!hFile)
     {
         return HRESULT_FROM_WIN32(GetLastError());
@@ -1938,9 +1940,9 @@ HRESULT DirectX::GetMetadataFromDDSFileEx(
         return HRESULT_FROM_WIN32(GetLastError());
     }
 
-    auto const headerLen = static_cast<size_t>(bytesRead);
+    const auto headerLen = static_cast<size_t>(bytesRead);
 #else
-    auto const headerLen = std::min<size_t>(len, DDS_DX10_HEADER_SIZE);
+    const auto headerLen = std::min<size_t>(len, DDS_DX10_HEADER_SIZE);
 
     inFile.read(reinterpret_cast<char*>(header), headerLen);
     if (!inFile)
@@ -2002,9 +2004,35 @@ HRESULT DirectX::LoadFromDDSMemoryEx(
             return E_FAIL;
     }
 
+    size_t remaining = size - offset;
+    if (remaining == 0)
+        return E_FAIL;
+
     hr = image.Initialize(mdata);
     if (FAILED(hr))
         return hr;
+
+    if (flags & DDS_FLAGS_PERMISSIVE)
+    {
+        // For cubemaps, DDS_HEADER_DXT10.arraySize is supposed to be 'number of cubes'.
+        // This handles cases where the value is incorrectly written as the original 6*numCubes value.
+        if ((mdata.miscFlags & TEX_MISC_TEXTURECUBE)
+            && (convFlags & CONV_FLAGS_DX10)
+            && (image.GetPixelsSize() > remaining)
+            && ((mdata.arraySize % 6) == 0))
+        {
+            mdata.arraySize = mdata.arraySize / 6;
+            hr = image.Initialize(mdata);
+            if (FAILED(hr))
+                return hr;
+
+            if (image.GetPixelsSize() > remaining)
+            {
+                image.Release();
+                return HRESULT_E_HANDLE_EOF;
+            }
+        }
+    }
 
     CP_FLAGS cflags = CP_FLAGS_NONE;
     if (flags & DDS_FLAGS_LEGACY_DWORD)
@@ -2064,12 +2092,10 @@ HRESULT DirectX::LoadFromDDSFileEx(
     image.Release();
 
 #ifdef _WIN32
-#if (_WIN32_WINNT >= _WIN32_WINNT_WIN8)
-    ScopedHandle hFile(safe_handle(CreateFile2(szFile, GENERIC_READ, FILE_SHARE_READ, OPEN_EXISTING, nullptr)));
-#else
-    ScopedHandle hFile(safe_handle(CreateFileW(szFile, GENERIC_READ, FILE_SHARE_READ, nullptr, OPEN_EXISTING,
-        FILE_FLAG_SEQUENTIAL_SCAN, nullptr)));
-#endif
+    ScopedHandle hFile(safe_handle(CreateFile2(
+        szFile,
+        GENERIC_READ, FILE_SHARE_READ, OPEN_EXISTING,
+        nullptr)));
     if (!hFile)
     {
         return HRESULT_FROM_WIN32(GetLastError());
@@ -2122,9 +2148,9 @@ HRESULT DirectX::LoadFromDDSFileEx(
         return HRESULT_FROM_WIN32(GetLastError());
     }
 
-    auto const headerLen = static_cast<size_t>(bytesRead);
+    const auto headerLen = static_cast<size_t>(bytesRead);
 #else
-    auto const headerLen = std::min<size_t>(len, DDS_DX10_HEADER_SIZE);
+    const auto headerLen = std::min<size_t>(len, DDS_DX10_HEADER_SIZE);
 
     inFile.read(reinterpret_cast<char*>(header), headerLen);
     if (!inFile)
@@ -2192,6 +2218,28 @@ HRESULT DirectX::LoadFromDDSFileEx(
     hr = image.Initialize(mdata);
     if (FAILED(hr))
         return hr;
+
+    if (flags & DDS_FLAGS_PERMISSIVE)
+    {
+        // For cubemaps, DDS_HEADER_DXT10.arraySize is supposed to be 'number of cubes'.
+        // This handles cases where the value is incorrectly written as the original 6*numCubes value.
+        if ((mdata.miscFlags & TEX_MISC_TEXTURECUBE)
+            && (convFlags & CONV_FLAGS_DX10)
+            && (image.GetPixelsSize() > remaining)
+            && ((mdata.arraySize % 6) == 0))
+        {
+            mdata.arraySize = mdata.arraySize / 6;
+            hr = image.Initialize(mdata);
+            if (FAILED(hr))
+                return hr;
+
+            if (image.GetPixelsSize() > remaining)
+            {
+                image.Release();
+                return HRESULT_E_HANDLE_EOF;
+            }
+        }
+    }
 
     if ((convFlags & CONV_FLAGS_EXPAND) || (flags & (DDS_FLAGS_LEGACY_DWORD | DDS_FLAGS_BAD_DXTN_TAILS)))
     {
@@ -2261,7 +2309,7 @@ HRESULT DirectX::LoadFromDDSFileEx(
         }
 
     #ifdef _WIN32
-        auto const pixelBytes = static_cast<DWORD>(image.GetPixelsSize());
+        const auto pixelBytes = static_cast<DWORD>(image.GetPixelsSize());
         if (!ReadFile(hFile.get(), image.GetPixels(), pixelBytes, &bytesRead, nullptr))
         {
             image.Release();
@@ -2368,7 +2416,7 @@ HRESULT DirectX::SaveToDDSMemory(
     size_t remaining = blob.GetBufferSize() - required;
     pDestination += required;
 
-    if (!remaining)
+    if (remaining == 0)
     {
         blob.Release();
         return E_FAIL;
@@ -2548,13 +2596,9 @@ HRESULT DirectX::SaveToDDSFile(
 
     // Create file and write header
 #ifdef _WIN32
-#if (_WIN32_WINNT >= _WIN32_WINNT_WIN8)
-    ScopedHandle hFile(safe_handle(CreateFile2(szFile,
+    ScopedHandle hFile(safe_handle(CreateFile2(
+        szFile,
         GENERIC_WRITE | DELETE, 0, CREATE_ALWAYS, nullptr)));
-#else
-    ScopedHandle hFile(safe_handle(CreateFileW(szFile,
-        GENERIC_WRITE | DELETE, 0, nullptr, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr)));
-#endif
     if (!hFile)
     {
         return HRESULT_FROM_WIN32(GetLastError());

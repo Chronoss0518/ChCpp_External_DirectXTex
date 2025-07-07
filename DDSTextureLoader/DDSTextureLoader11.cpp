@@ -56,7 +56,7 @@ using namespace DirectX;
 //--------------------------------------------------------------------------------------
 namespace
 {
-    #pragma pack(push,1)
+#pragma pack(push,1)
 
     constexpr uint32_t DDS_MAGIC = 0x20534444; // "DDS "
 
@@ -72,28 +72,28 @@ namespace
         uint32_t    ABitMask;
     };
 
-    #define DDS_FOURCC      0x00000004  // DDPF_FOURCC
-    #define DDS_RGB         0x00000040  // DDPF_RGB
-    #define DDS_LUMINANCE   0x00020000  // DDPF_LUMINANCE
-    #define DDS_ALPHA       0x00000002  // DDPF_ALPHA
-    #define DDS_BUMPDUDV    0x00080000  // DDPF_BUMPDUDV
+#define DDS_FOURCC      0x00000004  // DDPF_FOURCC
+#define DDS_RGB         0x00000040  // DDPF_RGB
+#define DDS_LUMINANCE   0x00020000  // DDPF_LUMINANCE
+#define DDS_ALPHA       0x00000002  // DDPF_ALPHA
+#define DDS_BUMPDUDV    0x00080000  // DDPF_BUMPDUDV
 
-    #define DDS_HEADER_FLAGS_VOLUME         0x00800000  // DDSD_DEPTH
+#define DDS_HEADER_FLAGS_VOLUME         0x00800000  // DDSD_DEPTH
 
-    #define DDS_HEIGHT 0x00000002 // DDSD_HEIGHT
+#define DDS_HEIGHT 0x00000002 // DDSD_HEIGHT
 
-    #define DDS_CUBEMAP_POSITIVEX 0x00000600 // DDSCAPS2_CUBEMAP | DDSCAPS2_CUBEMAP_POSITIVEX
-    #define DDS_CUBEMAP_NEGATIVEX 0x00000a00 // DDSCAPS2_CUBEMAP | DDSCAPS2_CUBEMAP_NEGATIVEX
-    #define DDS_CUBEMAP_POSITIVEY 0x00001200 // DDSCAPS2_CUBEMAP | DDSCAPS2_CUBEMAP_POSITIVEY
-    #define DDS_CUBEMAP_NEGATIVEY 0x00002200 // DDSCAPS2_CUBEMAP | DDSCAPS2_CUBEMAP_NEGATIVEY
-    #define DDS_CUBEMAP_POSITIVEZ 0x00004200 // DDSCAPS2_CUBEMAP | DDSCAPS2_CUBEMAP_POSITIVEZ
-    #define DDS_CUBEMAP_NEGATIVEZ 0x00008200 // DDSCAPS2_CUBEMAP | DDSCAPS2_CUBEMAP_NEGATIVEZ
+#define DDS_CUBEMAP_POSITIVEX 0x00000600 // DDSCAPS2_CUBEMAP | DDSCAPS2_CUBEMAP_POSITIVEX
+#define DDS_CUBEMAP_NEGATIVEX 0x00000a00 // DDSCAPS2_CUBEMAP | DDSCAPS2_CUBEMAP_NEGATIVEX
+#define DDS_CUBEMAP_POSITIVEY 0x00001200 // DDSCAPS2_CUBEMAP | DDSCAPS2_CUBEMAP_POSITIVEY
+#define DDS_CUBEMAP_NEGATIVEY 0x00002200 // DDSCAPS2_CUBEMAP | DDSCAPS2_CUBEMAP_NEGATIVEY
+#define DDS_CUBEMAP_POSITIVEZ 0x00004200 // DDSCAPS2_CUBEMAP | DDSCAPS2_CUBEMAP_POSITIVEZ
+#define DDS_CUBEMAP_NEGATIVEZ 0x00008200 // DDSCAPS2_CUBEMAP | DDSCAPS2_CUBEMAP_NEGATIVEZ
 
-    #define DDS_CUBEMAP_ALLFACES ( DDS_CUBEMAP_POSITIVEX | DDS_CUBEMAP_NEGATIVEX |\
+#define DDS_CUBEMAP_ALLFACES ( DDS_CUBEMAP_POSITIVEX | DDS_CUBEMAP_NEGATIVEX |\
                                 DDS_CUBEMAP_POSITIVEY | DDS_CUBEMAP_NEGATIVEY |\
                                 DDS_CUBEMAP_POSITIVEZ | DDS_CUBEMAP_NEGATIVEZ )
 
-    #define DDS_CUBEMAP 0x00000200 // DDSCAPS2_CUBEMAP
+#define DDS_CUBEMAP 0x00000200 // DDSCAPS2_CUBEMAP
 
     enum DDS_MISC_FLAGS2
     {
@@ -127,7 +127,7 @@ namespace
         uint32_t        miscFlags2;
     };
 
-    #pragma pack(pop)
+#pragma pack(pop)
 
     static_assert(sizeof(DDS_PIXELFORMAT) == 32, "DDS pixel format size mismatch");
     static_assert(sizeof(DDS_HEADER) == 124, "DDS Header size mismatch");
@@ -144,20 +144,19 @@ namespace
 
     inline HANDLE safe_handle(HANDLE h) noexcept { return (h == INVALID_HANDLE_VALUE) ? nullptr : h; }
 
-    #if defined(_DEBUG) || defined(PROFILE)
+#if defined(_DEBUG) || defined(PROFILE)
     template<UINT TNameLength>
     inline void SetDebugObjectName(_In_ ID3D11DeviceChild* resource, _In_ const char(&name)[TNameLength]) noexcept
     {
         resource->SetPrivateData(WKPDID_D3DDebugObjectName, TNameLength - 1, name);
     }
-    #else
+#else
     template<UINT TNameLength>
     inline void SetDebugObjectName(_In_ ID3D11DeviceChild*, _In_ const char(&)[TNameLength]) noexcept
-    {
-    }
-    #endif
+    {}
+#endif
 
-    //--------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------
     HRESULT LoadTextureDataFromMemory(
         _In_reads_(ddsDataSize) const uint8_t* ddsData,
         size_t ddsDataSize,
@@ -183,7 +182,7 @@ namespace
         }
 
         // DDS files always start with the same magic number ("DDS ")
-        auto const dwMagicNumber = *reinterpret_cast<const uint32_t*>(ddsData);
+        const auto dwMagicNumber = *reinterpret_cast<const uint32_t*>(ddsData);
         if (dwMagicNumber != DDS_MAGIC)
         {
             return E_FAIL;
@@ -239,20 +238,10 @@ namespace
         *bitSize = 0;
 
         // open the file
-    #if (_WIN32_WINNT >= _WIN32_WINNT_WIN8)
         ScopedHandle hFile(safe_handle(CreateFile2(
             fileName,
             GENERIC_READ, FILE_SHARE_READ, OPEN_EXISTING,
             nullptr)));
-    #else
-        ScopedHandle hFile(safe_handle(CreateFileW(
-            fileName,
-            GENERIC_READ, FILE_SHARE_READ,
-            nullptr,
-            OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL,
-            nullptr)));
-    #endif
-
         if (!hFile)
         {
             return HRESULT_FROM_WIN32(GetLastError());
@@ -304,7 +293,7 @@ namespace
         }
 
         // DDS files always start with the same magic number ("DDS ")
-        auto const dwMagicNumber = *reinterpret_cast<const uint32_t*>(ddsData.get());
+        const auto dwMagicNumber = *reinterpret_cast<const uint32_t*>(ddsData.get());
         if (dwMagicNumber != DDS_MAGIC)
         {
             ddsData.reset();
@@ -1761,7 +1750,7 @@ namespace
             if (MAKEFOURCC('D', 'X', '1', '0') == header->ddspf.fourCC)
             {
                 auto d3d10ext = reinterpret_cast<const DDS_HEADER_DXT10*>(reinterpret_cast<const uint8_t*>(header) + sizeof(DDS_HEADER));
-                auto const mode = static_cast<DDS_ALPHA_MODE>(d3d10ext->miscFlags2 & DDS_MISC_FLAGS2_ALPHA_MODE_MASK);
+                const auto mode = static_cast<DDS_ALPHA_MODE>(d3d10ext->miscFlags2 & DDS_MISC_FLAGS2_ALPHA_MODE_MASK);
                 switch (mode)
                 {
                 case DDS_ALPHA_MODE_STRAIGHT:

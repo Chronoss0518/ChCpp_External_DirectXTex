@@ -64,7 +64,7 @@ using Microsoft::WRL::ComPtr;
 //--------------------------------------------------------------------------------------
 namespace
 {
-    #pragma pack(push,1)
+#pragma pack(push,1)
 
     constexpr uint32_t DDS_MAGIC = 0x20534444; // "DDS "
 
@@ -80,22 +80,22 @@ namespace
         uint32_t    ABitMask;
     };
 
-    #define DDS_FOURCC        0x00000004  // DDPF_FOURCC
-    #define DDS_RGB           0x00000040  // DDPF_RGB
-    #define DDS_RGBA          0x00000041  // DDPF_RGB | DDPF_ALPHAPIXELS
-    #define DDS_LUMINANCE     0x00020000  // DDPF_LUMINANCE
-    #define DDS_LUMINANCEA    0x00020001  // DDPF_LUMINANCE | DDPF_ALPHAPIXELS
-    #define DDS_ALPHA         0x00000002  // DDPF_ALPHA
-    #define DDS_BUMPLUMINANCE 0x00040000  // DDPF_BUMPLUMINANCE
-    #define DDS_BUMPDUDV      0x00080000  // DDPF_BUMPDUDV
-    #define DDS_BUMPDUDVA     0x00080001  // DDPF_BUMPDUDV | DDPF_ALPHAPIXELS
+#define DDS_FOURCC        0x00000004  // DDPF_FOURCC
+#define DDS_RGB           0x00000040  // DDPF_RGB
+#define DDS_RGBA          0x00000041  // DDPF_RGB | DDPF_ALPHAPIXELS
+#define DDS_LUMINANCE     0x00020000  // DDPF_LUMINANCE
+#define DDS_LUMINANCEA    0x00020001  // DDPF_LUMINANCE | DDPF_ALPHAPIXELS
+#define DDS_ALPHA         0x00000002  // DDPF_ALPHA
+#define DDS_BUMPLUMINANCE 0x00040000  // DDPF_BUMPLUMINANCE
+#define DDS_BUMPDUDV      0x00080000  // DDPF_BUMPDUDV
+#define DDS_BUMPDUDVA     0x00080001  // DDPF_BUMPDUDV | DDPF_ALPHAPIXELS
 
-    #define DDS_HEADER_FLAGS_TEXTURE        0x00001007  // DDSD_CAPS | DDSD_HEIGHT | DDSD_WIDTH | DDSD_PIXELFORMAT
-    #define DDS_HEADER_FLAGS_MIPMAP         0x00020000  // DDSD_MIPMAPCOUNT
-    #define DDS_HEADER_FLAGS_PITCH          0x00000008  // DDSD_PITCH
-    #define DDS_HEADER_FLAGS_LINEARSIZE     0x00080000  // DDSD_LINEARSIZE
+#define DDS_HEADER_FLAGS_TEXTURE        0x00001007  // DDSD_CAPS | DDSD_HEIGHT | DDSD_WIDTH | DDSD_PIXELFORMAT
+#define DDS_HEADER_FLAGS_MIPMAP         0x00020000  // DDSD_MIPMAPCOUNT
+#define DDS_HEADER_FLAGS_PITCH          0x00000008  // DDSD_PITCH
+#define DDS_HEADER_FLAGS_LINEARSIZE     0x00080000  // DDSD_LINEARSIZE
 
-    #define DDS_SURFACE_FLAGS_TEXTURE 0x00001000 // DDSCAPS_TEXTURE
+#define DDS_SURFACE_FLAGS_TEXTURE 0x00001000 // DDSCAPS_TEXTURE
 
     struct DDS_HEADER
     {
@@ -115,7 +115,7 @@ namespace
         uint32_t        reserved2;
     };
 
-    #pragma pack(pop)
+#pragma pack(pop)
 
     static_assert(sizeof(DDS_PIXELFORMAT) == 32, "DDS pixel format size mismatch");
     static_assert(sizeof(DDS_HEADER) == 124, "DDS Header size mismatch");
@@ -520,7 +520,6 @@ namespace
 
     BOOL WINAPI InitializeWICFactory(PINIT_ONCE, PVOID, PVOID* ifactory) noexcept
     {
-    #if (_WIN32_WINNT >= _WIN32_WINNT_WIN8) || defined(_WIN7_PLATFORM_UPDATE)
         HRESULT hr = CoCreateInstance(
             CLSID_WICImagingFactory2,
             nullptr,
@@ -546,14 +545,6 @@ namespace
             );
             return SUCCEEDED(hr) ? TRUE : FALSE;
         }
-    #else
-        return SUCCEEDED(CoCreateInstance(
-            CLSID_WICImagingFactory,
-            nullptr,
-            CLSCTX_INPROC_SERVER,
-            __uuidof(IWICImagingFactory),
-            ifactory)) ? TRUE : FALSE;
-    #endif
     }
 
     IWICImagingFactory* GetWIC()
@@ -599,13 +590,10 @@ HRESULT DirectX::SaveDDSTextureToFile(
     }
 
     // Create file
-#if (_WIN32_WINNT >= _WIN32_WINNT_WIN8)
-    ScopedHandle hFile(safe_handle(CreateFile2(fileName,
-        GENERIC_WRITE | DELETE, 0, CREATE_ALWAYS, nullptr)));
-#else
-    ScopedHandle hFile(safe_handle(CreateFileW(fileName,
-        GENERIC_WRITE | DELETE, 0, nullptr, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr)));
-#endif
+    ScopedHandle hFile(safe_handle(CreateFile2(
+        fileName,
+        GENERIC_WRITE | DELETE, 0, CREATE_ALWAYS,
+        nullptr)));
     if (!hFile)
         return HRESULT_FROM_WIN32(GetLastError());
 
@@ -800,14 +788,12 @@ HRESULT DirectX::SaveWICTextureToFile(
     case D3DFMT_R32F:           pfGuid = GUID_WICPixelFormat32bppGrayFloat; break;
     case D3DFMT_A32B32G32R32F:  pfGuid = GUID_WICPixelFormat128bppRGBAFloat; break;
 
-    #if (_WIN32_WINNT >= _WIN32_WINNT_WIN8) || defined(_WIN7_PLATFORM_UPDATE)
     case D3DFMT_X8B8G8R8:
         if (g_WIC2)
             pfGuid = GUID_WICPixelFormat32bppRGB;
         else
             HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED);
         break;
-    #endif
 
     default:
         return HRESULT_FROM_WIN32(ERROR_NOT_SUPPORTED);
@@ -879,7 +865,6 @@ HRESULT DirectX::SaveWICTextureToFile(
         // Screenshots don't typically include the alpha channel of the render target
         switch (desc.Format)
         {
-        #if (_WIN32_WINNT >= _WIN32_WINNT_WIN8) || defined(_WIN7_PLATFORM_UPDATE)
         case D3DFMT_A32B32G32R32F:
         case D3DFMT_A16B16G16R16F:
             if (g_WIC2)
@@ -891,7 +876,6 @@ HRESULT DirectX::SaveWICTextureToFile(
                 targetGuid = GUID_WICPixelFormat24bppBGR;
             }
             break;
-        #endif
 
         case D3DFMT_A16B16G16R16: targetGuid = GUID_WICPixelFormat48bppBGR; break;
         case D3DFMT_R5G6B5:       targetGuid = GUID_WICPixelFormat16bppBGR565; break;
